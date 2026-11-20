@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#081426" />
+  <title>Aurora Weather</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="ambient ambient-one"></div><div class="ambient ambient-two"></div>
+  <main class="app-shell">
+    <header class="topbar">
+      <a class="brand" href="#"><span class="brand-mark">✦</span><span>AURORA<span class="brand-light"> WEATHER</span></span></a>
+      <div class="top-actions">
+        <span class="live-dot"></span><span class="live-label">LIVE WEATHER</span>
+        <button id="unitToggle" class="unit-toggle" aria-label="Switch temperature unit">°C <span>/</span> °F</button>
+      </div>
+    </header>
+
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">YOUR WEATHER, REIMAGINED</p>
+        <h1>Feel the <span>forecast.</span></h1>
+        <p class="subtitle">A little clarity for whatever the sky has planned.</p>
+      </div>
+      <form id="searchForm" class="search-box">
+        <span class="search-icon">⌕</span>
+        <input id="cityInput" type="search" placeholder="Search a city..." autocomplete="off" aria-label="Search city" />
+        <button type="submit">Search <span>→</span></button>
+      </form>
+    </section>
+
+    <section id="weatherPanel" class="weather-panel loading">
+      <div class="panel-glow"></div>
+      <div class="current-main">
+        <div>
+          <p class="eyebrow">CURRENT CONDITIONS</p>
+          <h2 id="cityName">Finding your sky...</h2>
+          <p id="currentDate" class="muted">Please wait</p>
+          <div class="temperature"><span id="temperature">--</span><sup id="degree">°C</sup></div>
+          <p id="condition" class="condition">Loading weather</p>
+          <p class="feels">Feels like <strong id="feelsLike">--°</strong> · <span id="highLow">H: --° L: --°</span></p>
+        </div>
+        <div class="weather-art" id="weatherArt"><div class="sun"></div><div class="cloud cloud-a"></div><div class="cloud cloud-b"></div></div>
+      </div>
+      <div class="current-stats">
+        <div class="stat"><span class="stat-icon">💧</span><div><small>HUMIDITY</small><strong id="humidity">--%</strong></div></div>
+        <div class="stat"><span class="stat-icon">🌬️</span><div><small>WIND</small><strong id="wind">-- km/h</strong></div></div>
+        <div class="stat"><span class="stat-icon">☀️</span><div><small>UV INDEX</small><strong id="uv">--</strong></div></div>
+        <div class="stat"><span class="stat-icon">👁️</span><div><small>VISIBILITY</small><strong id="visibility">-- km</strong></div></div>
+      </div>
+    </section>
+
+    <section class="forecast-section">
+      <div class="section-heading"><div><p class="eyebrow">THE NEXT FEW DAYS</p><h3>5-day forecast</h3></div><span class="section-note">A glance ahead</span></div>
+      <div id="forecast" class="forecast-grid">
+        <div class="forecast-placeholder">Your forecast will appear here.</div>
+      </div>
+    </section>
+    <footer><span>Made for curious skies.</span><span>Weather data · Open-Meteo</span></footer>
+    <div id="message" class="message" role="status"></div>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
